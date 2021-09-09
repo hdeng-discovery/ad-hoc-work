@@ -1,0 +1,40 @@
+{
+  "profiles": [
+    {"id":"UC08wrceRCWhajGG4udhETww","platform":"youtube"},
+    {"id":"UC4gJntprzE2tf501BkxMMQA","platform":"youtube"},
+    {"id":"UC8Y-jrV8oR3s2Ix4viDkZtA","platform":"youtube"},
+    {"id":"UCBiuljj5uaUVHbnTAzfvutg","platform":"youtube"},
+    {"id":"UCesXqJmu3vgiacty8CVlK5g","platform":"youtube"},
+    {"id":"UCgezeU5ToWz2Eg5JjuIctng","platform":"youtube"},
+    {"id":"UCINb0wqPz-A0dV9nARjJlOQ","platform":"youtube"},
+    {"id":"UCJUAqHnkDX15IvFoXIGTm2A","platform":"youtube"},
+    {"id":"UCkEBDbzLyH-LbB2FgMoSMaQ","platform":"youtube"},
+    {"id":"UCQ9U250Y8D-ZJHIAMH9L9SQ","platform":"youtube"},
+    {"id":"UCqf2gzmKtH3PaAbt-qgFFsw","platform":"youtube"},
+    {"id":"UCqOoboPm3uhY_YXhvhmL-WA","platform":"youtube"},
+    {"id":"UCvJiYiBUbw4tmpRSZT2r1Hw","platform":"youtube"}
+  ],
+  "date_start": "{1}",
+  "date_end": "{2}",
+  "metric": "{0}",
+  "dimensions": [
+    {
+      "type": "profile"
+    },
+    {
+      "type": "date.day"
+    }
+  ],
+  "filter": [
+    {
+      "match_any": [
+        {
+          "field": "post_labels",
+          "value": [
+            "{3}"
+          ]
+        }
+      ]
+    }
+  ]
+}

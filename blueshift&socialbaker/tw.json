@@ -1,0 +1,103 @@
+{
+  "profiles": [
+    {"id":"1016107212","platform":"twitter"},
+    {"id":"1135910720015650821","platform":"twitter"},
+    {"id":"1159939326538637320","platform":"twitter"},
+    {"id":"1170180510","platform":"twitter"},
+    {"id":"1197013660163555328","platform":"twitter"},
+    {"id":"1225827728605241345","platform":"twitter"},
+    {"id":"128263500","platform":"twitter"},
+    {"id":"14363353","platform":"twitter"},
+    {"id":"14709355","platform":"twitter"},
+    {"id":"14942684","platform":"twitter"},
+    {"id":"14942701","platform":"twitter"},
+    {"id":"14949475","platform":"twitter"},
+    {"id":"15661871","platform":"twitter"},
+    {"id":"1584051084","platform":"twitter"},
+    {"id":"15984981","platform":"twitter"},
+    {"id":"1604444052","platform":"twitter"},
+    {"id":"16262688","platform":"twitter"},
+    {"id":"1633799557","platform":"twitter"},
+    {"id":"16402507","platform":"twitter"},
+    {"id":"164122774","platform":"twitter"},
+    {"id":"16895274","platform":"twitter"},
+    {"id":"171685697","platform":"twitter"},
+    {"id":"17454419","platform":"twitter"},
+    {"id":"17696167","platform":"twitter"},
+    {"id":"17842366","platform":"twitter"},
+    {"id":"18128265","platform":"twitter"},
+    {"id":"182161200","platform":"twitter"},
+    {"id":"18253799","platform":"twitter"},
+    {"id":"1855318789","platform":"twitter"},
+    {"id":"18913121","platform":"twitter"},
+    {"id":"1905320202","platform":"twitter"},
+    {"id":"20188834","platform":"twitter"},
+    {"id":"20661539","platform":"twitter"},
+    {"id":"20710809","platform":"twitter"},
+    {"id":"21313855","platform":"twitter"},
+    {"id":"21324258","platform":"twitter"},
+    {"id":"21345455","platform":"twitter"},
+    {"id":"219540733","platform":"twitter"},
+    {"id":"22061951","platform":"twitter"},
+    {"id":"22156181","platform":"twitter"},
+    {"id":"22406410","platform":"twitter"},
+    {"id":"23151437","platform":"twitter"},
+    {"id":"235157481","platform":"twitter"},
+    {"id":"23552214","platform":"twitter"},
+    {"id":"2590370142","platform":"twitter"},
+    {"id":"26378747","platform":"twitter"},
+    {"id":"2656954399","platform":"twitter"},
+    {"id":"26628211","platform":"twitter"},
+    {"id":"27083523","platform":"twitter"},
+    {"id":"27091468","platform":"twitter"},
+    {"id":"27687672","platform":"twitter"},
+    {"id":"28164096","platform":"twitter"},
+    {"id":"313916789","platform":"twitter"},
+    {"id":"3154892685","platform":"twitter"},
+    {"id":"33627557","platform":"twitter"},
+    {"id":"34436704","platform":"twitter"},
+    {"id":"3585234732","platform":"twitter"},
+    {"id":"358855692","platform":"twitter"},
+    {"id":"36980342","platform":"twitter"},
+    {"id":"41206681","platform":"twitter"},
+    {"id":"43269420","platform":"twitter"},
+    {"id":"48516633","platform":"twitter"},
+    {"id":"55117855","platform":"twitter"},
+    {"id":"59889953","platform":"twitter"},
+    {"id":"600435408","platform":"twitter"},
+    {"id":"60395840","platform":"twitter"},
+    {"id":"62760327","platform":"twitter"},
+    {"id":"67132107","platform":"twitter"},
+    {"id":"719346211321348097","platform":"twitter"},
+    {"id":"80943051","platform":"twitter"},
+    {"id":"823240130","platform":"twitter"},
+    {"id":"82669572","platform":"twitter"},
+    {"id":"8283082","platform":"twitter"},
+    {"id":"84884489","platform":"twitter"},
+    {"id":"86972419","platform":"twitter"},
+    {"id":"960676629142892544","platform":"twitter"}
+  ],
+  "date_start": "{1}",
+  "date_end": "{2}",
+  "metric": "{0}",
+  "dimensions": [
+    {
+      "type": "profile"
+    },
+    {
+      "type": "date.day"
+    }
+  ],
+  "filter": [
+    {
+      "match_any": [
+        {
+          "field": "post_labels",
+          "value": [
+            "{3}"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "profiles": [
+      "107462886590319"
+  ],
+  "date_start": "{1}",
+  "date_end": "{2}",
+  "fields": [
+    "id",
+    "created_time",
+    "content",
+    "url",
+    "author",
+    "interactions",
+    "insights_impressions",
+    "insights_post_clicks",
+    "insights_reach",
+    "insights_video_views"
+  ]
+}

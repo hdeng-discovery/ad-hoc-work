@@ -1,0 +1,40 @@
+{
+  "profiles": [
+    "UC08wrceRCWhajGG4udhETww",
+    "UC4gJntprzE2tf501BkxMMQA",
+    "UC8Y-jrV8oR3s2Ix4viDkZtA",
+    "UCBiuljj5uaUVHbnTAzfvutg",
+    "UCesXqJmu3vgiacty8CVlK5g",
+    "UCgezeU5ToWz2Eg5JjuIctng",
+    "UCINb0wqPz-A0dV9nARjJlOQ",
+    "UCJUAqHnkDX15IvFoXIGTm2A",
+    "UCkEBDbzLyH-LbB2FgMoSMaQ",
+    "UCQ9U250Y8D-ZJHIAMH9L9SQ",
+    "UCqf2gzmKtH3PaAbt-qgFFsw",
+    "UCqOoboPm3uhY_YXhvhmL-WA",
+    "UCvJiYiBUbw4tmpRSZT2r1Hw"
+  ],
+  "date_start": "{1}",
+  "date_end": "{2}",
+  "fields": [
+    "id",
+    "created_time",
+    "description",
+    "url",
+    "author",
+    "interactions",
+    "ideo_views"
+  ],
+  "filter": [
+    {
+      "match_any": [
+        {
+          "field": "post_labels",
+          "value": [
+            "{0}"
+          ]
+        }
+      ]
+    }
+  ]
+}

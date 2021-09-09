@@ -1,0 +1,48 @@
+index="events-api" earliest=-1d@d+1m
+| search version="2.2.0"
+| search type="error"
+| spath path=timestamp output=timestamp
+| eval timestampp=strptime(timestamp, "%Y-%m-%dT%H:%M:%S")
+| eval date=strftime(timestampp,"%d-%b-%Y")
+| spath path=session.sonicId output=sonicid
+| spath path=payload.productAttributes.name output=app_name
+| spath path=payload.productAttributes.version output=app_version
+| spath path=session.platform output=device
+| spath path=payload.clientAttributes.os.version output=os_version
+| spath path=subType output=subtype
+| spath path=payload.type output=error_type
+| spath path=payload.severity output=severity
+| spath path=payload.code output=code
+| search code = "IAPSubscrptionPlansError.noPlansReturned"
+| spath path=payload.name output=error_name
+| spath path=payload.message output=error_message
+| spath path=payload.screenName output=screen_name
+| spath path=payload.errorAction{} output=error_action
+| table date timestamp sonicid app_name app_version device os_version subtype error_type severity code error_name error_message screen_name error_action
+
+
+
+
+index="events-api"  
+| search version="2.2.0" type="interaction" payload.productAttributes.name = "dplus_us" 
+| spath path=payload.location output=page_location  
+| eval temp=split(page_location,"|") | eval a=mvindex(temp,0) | eval b=mvindex(temp,1) | eval c=mvindex(temp,2) | eval d=mvindex(temp,3) | eval e=mvindex(temp,4)
+| search a="home" b="content-grid" c="*" | dedup a b c
+| table a b c
+| head 100
+
+
+index="events-api"  
+| search version="2.2.0" type="browse" payload.productAttributes.name = "dplus_us" subType="view"
+| spath path=payload.referringScreenLocation output=page_location 
+| eval temp=split(page_location,"|") | eval a=mvindex(temp,0) | eval b=mvindex(temp,1) | eval c=mvindex(temp,2) | eval d=mvindex(temp,3) | eval e=mvindex(temp,4)
+| search a="home" b="content-grid" c="*" 
+| head 100
+
+--payload.targetURI="https://www.discoveryplus.com/" 
+
+index="events-api"  version="2.2.0" type="interaction" subType="click" payload.productAttributes.name = "dplus_us" session.platform="web" payload.screenName="home" NOT session.authType="*"
+| stats distinct_count(uuid) distinct_count(payload.clientAttributes.id) by payload.element payload.targetURI payload.targetText
+
+index="events-api"  version="2.2.0" type="interaction" subType="click" payload.productAttributes.name = "dplus_us" session.platform="web" payload.screenURI="https://www.discoveryplus.com/"  NOT session.authType="*"
+| stats distinct_count(uuid) distinct_count(payload.clientAttributes.id) by payload.targetText

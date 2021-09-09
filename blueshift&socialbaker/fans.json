@@ -1,0 +1,13 @@
+{
+  "profiles": [
+    "{2}"
+  ],
+  "date_start": "{0}",
+  "date_end": "{0}",
+  "metrics": ["{1}"],
+  "dimensions": [
+    {
+      "type": "date.day"
+    }
+  ]
+}
