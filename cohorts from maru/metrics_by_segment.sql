@@ -850,34 +850,35 @@ with base as (
   when series_name in ('Naked and Afraid of Love') then 'Naked and Afraid of Love'
   when series_name in ('90 Day: The Single Life') then '90 Day: The Single Life' end as series_name,
   cust_show_premiere_date,
-  count(distinct a.user_id) new_subs_count_viewing_series
+  sum(new_subscriber_share) new_subscriber_contribution
   from digital_analytics_dev.adobe_discovery_plus_daily_new_subscriber_share_by_asset a
   join digital_analytics_dev.survey_response b 
-  on a.user_id=b.user_id and date>='2021-01-03'
+  on a.user_id=b.user_id and date>='2021-01-04' and sub_source='All'
   join digital_analytics.sonic_content_metadata c 
   on a.video_digital_id=c.video_id and 
-  series_name in ('Naked and Afraid','Naked and Afraid of Love','90 Day: The Single Life')
+  series_name in ('Naked and Afraid','Naked and Afraid of Love','90 Day: The Single Life') and
+  batch_date='2021-09-08'
   group by 1,2,3)
 select distinct
-b.cord_status,'Naked and Afraid' show_name, d.cust_show_premiere_date, new_subs_count_viewing_series, count(distinct a.user_id) total_new_viewing_subs
+b.cord_status,'Naked and Afraid' show_name, d.cust_show_premiere_date, new_subscriber_contribution, count(distinct a.user_id) total_new_viewing_subs
 from digital_analytics_dev.adobe_discovery_plus_daily_new_subscriber_share_by_asset a
 join digital_analytics_dev.survey_response b 
-on a.user_id=b.user_id  
+on a.user_id=b.user_id   and sub_source='All'
 join base d on b.cord_status=d.cord_status and d.series_name='Naked and Afraid' and date>=cust_show_premiere_date
 group by 1,2,3,4
 union all 
 select distinct
-b.cord_status,'Naked and Afraid of Love' show_name, d.cust_show_premiere_date, new_subs_count_viewing_series, count(distinct a.user_id) total_new_viewing_subs
+b.cord_status,'Naked and Afraid of Love' show_name, d.cust_show_premiere_date, new_subscriber_contribution, count(distinct a.user_id) total_new_viewing_subs
 from digital_analytics_dev.adobe_discovery_plus_daily_new_subscriber_share_by_asset a
 join digital_analytics_dev.survey_response b 
-on a.user_id=b.user_id  
+on a.user_id=b.user_id   and sub_source='All'
 join base d on b.cord_status=d.cord_status and d.series_name='Naked and Afraid of Love' and date>=cust_show_premiere_date
 group by 1,2,3,4
 union all 
 select distinct
-b.cord_status,'90 Day: The Single Life' show_name, d.cust_show_premiere_date, new_subs_count_viewing_series, count(distinct a.user_id) total_new_viewing_subs
+b.cord_status,'90 Day: The Single Life' show_name, d.cust_show_premiere_date, new_subscriber_contribution, count(distinct a.user_id) total_new_viewing_subs
 from digital_analytics_dev.adobe_discovery_plus_daily_new_subscriber_share_by_asset a
 join digital_analytics_dev.survey_response b 
-on a.user_id=b.user_id  
+on a.user_id=b.user_id   and sub_source='All'
 join base d on b.cord_status=d.cord_status and d.series_name='90 Day: The Single Life' and date>=cust_show_premiere_date
 group by 1,2,3,4;
